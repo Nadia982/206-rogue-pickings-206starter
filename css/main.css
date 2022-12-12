@@ -1,3 +1,14 @@
+/* Let's take a closer look at the widths of the different sections. 
+
+When we code the mobile site, we want the "container" to take up 90% of the site so that we have 
+a bit of space on either side of the content. Everything else will take up the entire width. 
+What can you change the width value to so that they take up the entire width of their container? 
+
+Next, compare the bottom-section to the design to see if there are any changes to be made in the 
+alignment of the three columns or the vertical borders on either side of the second column. */
+
+/* MOBILE FIRST STYLES */
+
 html {
   font-size: 16px;
 }
@@ -9,16 +20,9 @@ body {
   justify-content: center;
   align-items: center;
   max-width: 1200px;
-  width: 90%;
+  width: 100%;
+  margin: 0 auto;
   flex-flow: row wrap;
-}
-
-ul {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  line-height: 2em;
 }
 
 .container {
@@ -55,7 +59,7 @@ h3 {
 p {
   font-size: 0.875rem;
   line-height: 21px;
-  padding: 0 30px;
+  /* padding: 0 30px; */
 }
 
 /*The widths are in a percentage!*/
@@ -63,7 +67,7 @@ header {
   border-bottom: 3px solid #77a466;
   margin: 0 auto;
   max-width: 1200px;
-  width: 90%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -73,7 +77,8 @@ header {
 header h1 {
   /* float: left; */
   margin: 0;
-  padding: 38px 0;
+  padding: 15px 0;
+  /* padding: 38px 0; */
 }
 header h1 span {
   color: #77a466;
@@ -86,6 +91,11 @@ header nav {
 header nav ul {
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 2.5em;
 }
 header nav ul li {
   text-transform: uppercase;
@@ -104,10 +114,10 @@ header nav ul li a {
 .bottom-section {
   margin: 0 auto;
   max-width: 1200px;
-  width: 90%;
+  width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: flex-start;
+  /* align-items: flex-start; */
   flex-flow: row wrap;
 }
 
@@ -139,21 +149,15 @@ header nav ul li a {
 .section-three {
   width: 100%;
   height: auto;
-  border-top: 1px solid #eee;
 }
 
 .section-one h3 {
-  padding: 10px 0;
-}
-
-.section-two {
-  border-left: 1px solid #eee;
-  border-right: 1px solid #eee;
+  /* padding: 10px 0; */
 }
 
 .section-two h3,
 .section-three h3 {
-  padding: 10px 30px;
+  /* padding: 10px 30px; */
 }
 
 .menu {
@@ -182,7 +186,7 @@ footer {
   margin: 0 auto;
   text-align: center;
   max-width: 1200px;
-  width: 90%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -195,10 +199,69 @@ footer span {
   font-size: 0.875rem;
 }
 
-@media (min-width: 1200px) {
+/* TABLET STYLES */
+
+@media (min-width: 768px) {
+  * {
+    /* border: 1px solid red; */
+  }
+
+  /* .container {
+    width: 100%;
+  } */
+
   .section-one,
   .section-two,
   .section-three {
-    width: 33%;
+    width: 30%;
+  }
+
+  .bottom-section {
+    border-top: 1px solid #eee;
+  }
+
+  .section-two {
+    padding: 0 2.5%;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+  }
+
+  .top-section,
+  .bottom-section {
+    margin: 0 auto;
+    /* max-width: 1200px; */
+    display: flex;
+    /* justify-content: center; */
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-flow: row wrap;
+  }
+}
+
+/* TABLET STYLES */
+
+@media (min-width: 1200px) {
+  /* * {
+    border: 1px solid red;
+  } */
+
+  header {
+    border-bottom: none;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1em;
+  }
+
+  header nav ul {
+    flex-direction: row;
+  }
+
+  h1 {
+    border-bottom: none;
+    width: auto;
+  }
+
+  .bottom-section {
+    border-bottom: 1px solid #eee;
   }
 }
